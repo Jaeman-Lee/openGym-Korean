@@ -1,7 +1,7 @@
 {
   "name": "openGym",
   "short_name": "openGym",
-  "description": "Personal gym & body weight tracker",
+  "description": "운동 루틴과 중량, 체중 변화를 기록하는 개인 운동 앱",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

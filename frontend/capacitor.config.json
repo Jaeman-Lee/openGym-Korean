@@ -1,6 +1,6 @@
 {
-  "appId": "ch.duartesantos.opengym",
-  "appName": "openGym",
+  "appId": "ch.duartesantos.opengym.ko",
+  "appName": "openGym 한국어",
   "webDir": "dist",
   "backgroundColor": "#0c0e12",
   "android": {

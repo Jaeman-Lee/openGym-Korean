@@ -14,3 +14,9 @@ node_modules/
 *.log
 .DS_Store
 node_modules
+
+# Local Android release output and signing material
+artifacts/
+*.jks
+*.keystore
+signing.properties

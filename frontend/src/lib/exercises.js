@@ -1,5 +1,6 @@
 import { EXDB } from './exercises-data.js'
-import { t } from './i18n-core.js'
+import { getLang, t } from './i18n-core.js'
+import { koreanExerciseName } from './exercise-names-ko.js'
 
 export { EXDB }
 
@@ -25,6 +26,24 @@ export const smOf = ex => {
 export const EXIDX = {}
 EXDB.forEach(e => { EXIDX[e.id] = e })
 export const BODYPARTS = [...new Set(EXDB.map(e => e.bp))].sort()
+
+// The upstream catalogue localises instructions but ships English-only exercise names.
+// Keep the source name intact for imports/exports and translate only at presentation time.
+// Custom names are user-authored and must never be rewritten.
+export const exerciseName = ex => {
+  if (!ex) return t('Unknown exercise')
+  if (ex.custom || getLang() !== 'ko') return ex.n || t('Unknown exercise')
+  return koreanExerciseName(ex.n) || ex.n || t('Unknown exercise')
+}
+
+// Search both the canonical fields and their translated display values.  A Korean user can
+// therefore find "가슴", "덤벨", or "벤치프레스" without breaking English CSV matching.
+export const exerciseMatches = (ex, query) => {
+  const q = String(query || '').toLowerCase().trim()
+  if (!q) return true
+  return [ex.n, exerciseName(ex), ex.tg, t(ex.tg), ex.bp, t(ex.bp), ex.eq, t(ex.eq), ex.desc]
+    .some(value => String(value || '').toLowerCase().includes(q))
+}
 
 // Equipment options present in a given list of exercises, most common first (issue #6).
 // Deriving them from the *already filtered* list keeps the chip row short and means

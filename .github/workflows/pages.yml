@@ -33,6 +33,8 @@ env:
 
 jobs:
   build:
+    # This upstream demo deployment is intentionally disabled in localization forks.
+    if: github.repository == 'DuarteSantos8/openGym'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

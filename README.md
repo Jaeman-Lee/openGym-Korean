@@ -1,3 +1,5 @@
+> 🇰🇷 **한국어판을 찾으시나요?** 설치 방법과 검증 정보는 **[README.ko.md](README.ko.md)**에서 확인하세요.
+
 <div align="center">
 
 <img src="assets/banner.png" alt="openGym" width="720">

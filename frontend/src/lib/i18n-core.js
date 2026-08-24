@@ -2,6 +2,8 @@
 // instrFor, getLang). Plain Node-loadable — the browser-only pieces (import.meta.glob lazy
 // loads, the React subscription hook) live in i18n.js and re-export from here.
 
+import { polishKoreanInstruction } from './instruction-ko.js'
+
 export const LANGS = {
   en: 'English', de: 'Deutsch', es: 'Español', fr: 'Français', it: 'Italiano',
   pt: 'Português', pl: 'Polski', tr: 'Türkçe', ru: 'Русский', zh: '中文',
@@ -30,7 +32,10 @@ export function t(s, ...args) {
 }
 
 // Instructions for an exercise in the current language (English steps as fallback).
-export const instrFor = ex => (instr && instr[ex.id]) || ex.st || []
+export const instrFor = ex => {
+  const steps = (instr && instr[ex.id]) || ex.st || []
+  return lang === 'ko' ? steps.map(polishKoreanInstruction) : steps
+}
 
 // Called by i18n.js's setLang once the locale pack has been loaded — kept here rather than
 // exported as setLang because loading packs requires import.meta.glob, which is Vite-only.

@@ -17,6 +17,8 @@ permissions:
 
 jobs:
   build:
+    # This upstream publishing workflow is intentionally disabled in localization forks.
+    if: github.repository == 'DuarteSantos8/openGym'
     runs-on: ubuntu-latest
     strategy:
       matrix:
