@@ -30,6 +30,13 @@ openGym 한국어판은 [DuarteSantos8/openGym](https://gitlab.com/DuarteSantos8
 - 공개 릴리스에는 GitHub 빌드 출처 증명(attestation)을 생성합니다.
 - 앱은 카메라, 마이크, 위치, 연락처 권한을 요청하지 않습니다.
 
+릴리스 서명 인증서의 SHA-256 지문은 다음과 같습니다. 공개 인증서 원본은 [docs/opengym-ko-release-cert.pem](docs/opengym-ko-release-cert.pem)에서 확인할 수 있습니다.
+
+```text
+D5:AC:F1:25:75:40:AF:52:9E:72:6C:C5:AD:56:84:E4:
+E7:5A:C5:70:15:1D:F6:15:4F:7A:BA:32:96:D0:41:38
+```
+
 다운로드한 파일의 체크섬은 다음처럼 확인할 수 있습니다.
 
 ```bash
